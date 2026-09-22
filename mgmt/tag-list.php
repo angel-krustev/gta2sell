@@ -1,0 +1,142 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<?php $cid = $_GET['cid'] ?>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="keywords" content="jquery,ui,easy,easyui,web">
+	<meta name="description" content="easyui help you build your web page easily!">
+	<title>feed tags</title>
+	<link rel="stylesheet" type="text/css" href="/css/easyui.css">
+	<link rel="stylesheet" type="text/css" href="/css/icon.css">
+	<link rel="stylesheet" type="text/css" href="/css/demo.css">
+	<style type="text/css">
+		#fm{
+			margin:0;
+			padding:10px 30px;
+		}
+		.ftitle{
+			font-size:14px;
+			font-weight:bold;
+			color:#666;
+			padding:5px 0;
+			margin-bottom:10px;
+			border-bottom:1px solid #ccc;
+		}
+		.fitem{
+			margin-bottom:5px;
+		}
+		.fitem label{
+			display:inline-block;
+			width:80px;
+		}
+	</style>
+
+	<script type="text/javascript" src="/js/jquery-1.6.min.js"></script>
+	<script type="text/javascript" src="/js/jquery.easyui.min.js"></script>
+	<script type="text/javascript">
+		var url;
+		function newTag(){
+			$('#dlg').dialog('open').dialog('setTitle','Enter MLS');
+			$('#fm').form('clear');
+			url = 'save_tag.php?cid=<?php echo $cid ?>';
+		}
+		function editTag(){
+			var row = $('#dg').datagrid('getSelected');
+			if (row){
+				$('#dlg').dialog('open').dialog('setTitle','Edit Tag');
+				$('#fm').form('load',row);
+				url = 'update_tag.php?cid=<?php echo $cid ?>&id='+row.id;
+			}
+		}
+		function saveTag(){
+			$('#fm').form('submit',{
+				url: url,
+				onSubmit: function(){
+					return $(this).form('validate');
+				},
+				success: function(result){
+					var result = eval('('+result+')');
+					if (result.success){
+						$('#dlg').dialog('close');		// close the dialog
+						$('#dg').datagrid('reload');	// reload the tag data
+					} else {
+						$.messager.show({
+							title: 'Error',
+							msg: result.msg
+						});
+					}
+				}
+			});
+		}
+		function removeTag(){
+			var row = $('#dg').datagrid('getSelected');
+			if (row){
+				$.messager.confirm('Confirm','Are you sure you want to remove this tag?',function(r){
+					if (r){
+						$.post('remove_tag.php?cid=<?php echo $cid ?>',{id:row.id},function(result){
+							if (result.success){
+								$('#dg').datagrid('reload');	// reload the tag data
+							} else {
+								$.messager.show({	// show error message
+									title: 'Error',
+									msg: result.msg
+								});
+							}
+						},'json');
+					}
+				});
+			}
+		}
+	</script>
+</head>
+<body>
+	<div class="demo-info" style="margin-bottom:10px">
+		<div class="demo-tip icon-tip">&nbsp;</div>
+	</div>
+	
+	<table id="dg" title="Feed Tags" class="easyui-datagrid" style="width:700px;height:250px"
+			url="get_tags.php?cid=<?php echo $cid ?>"
+			toolbar="#toolbar" pagination="true"
+			rownumbers="true" fitColumns="true" singleSelect="true">
+		<thead>
+			<tr>
+				<th field="template_name" width="50">Template Name</th>
+				<th field="name" width="50">XML Name</th>
+				<th field="tagname" width="50">TAG Name</th>
+				<th field="mandatory" width="50">Mandatory</th>
+			</tr>
+		</thead>
+	</table>
+	<div id="toolbar">
+		<a href="#" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="newTag()">New Tag</a>
+		<a href="#" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editTag()">Edit Tag</a>
+		<a href="#" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="removeTag()">Remove Tag</a>
+	</div>
+	
+	<div id="dlg" class="easyui-dialog" style="width:400px;height:280px;padding:10px 20px"
+			closed="true" buttons="#dlg-buttons">
+		<div class="ftitle">Tag Information</div>
+		<form id="fm" method="post" novalidate>
+			<div class="fitem">
+				<label>XML Name:</label>
+				<input name="name" class="easyui-validatebox" required="true">
+			</div>
+			<div class="fitem">
+				<label>Tag Name:</label>
+				<input name="tagname" class="easyui-validatebox" required="true">
+			</div>
+			<div class="fitem">
+				<label>Mandatory:</label>
+                                  <select name="mandatory" size="1"  class="easyui-validatebox" required="true">
+                                     <option value="Y" selected="">Y</option>
+                                     <option value="N">N</option>
+                                 </select>
+			</div>
+		</form>
+	</div>
+	<div id="dlg-buttons">
+		<a href="#" class="easyui-linkbutton" iconCls="icon-ok" onclick="saveTag()">Save</a>
+		<a href="#" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#dlg').dialog('close')">Cancel</a>
+	</div>
+</body>
+</html>

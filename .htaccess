@@ -1,0 +1,15 @@
+Options +FollowSymLinks
+RewriteEngine On
+
+#RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+#RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+#RewriteCond %{HTTPS} !on
+#RewriteRule (.*) https://%{HTTP_HOST}/%{REQUEST_URI} [R=301,L]
+
+RewriteRule ^rs/(.*)x(.*)/r/(.*) rs/timthumb-gta-2016.php?src=/$3&h=$2&w=$1 [L]
+RewriteRule ^tile/(.*)/(.*)/(.*)$ ts/tile.php?z=$1&x=$2&y=$3 [L] 
+RewriteRule ^validate/(.*)$ signup/validate.php?tkn=$1 [L]
+
+RewriteRule ^inc/.*$ index.php 
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ index.php [QSA,L]

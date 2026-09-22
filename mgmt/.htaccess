@@ -1,0 +1,4 @@
+AuthType Basic
+AuthName "Featured Management"
+AuthUserFile /wp/pass/.htpasswd
+Require valid-user

@@ -1,0 +1,70 @@
+/*
+ *  * Navbar
+ *   */
+
+.tm-navbar {
+    padding: 15px 0;
+    border: none;
+    background: #31006E;
+}
+
+.tm-navbar .uk-navbar-content,
+.tm-navbar .uk-navbar-brand,
+.tm-navbar .uk-navbar-toggle {
+    height: 35px;
+    margin-top: 0;
+    text-shadow: none;
+}
+
+.tm-navbar .uk-navbar-nav > li > a {
+    height: 40px;
+    margin: 0;
+    border: none;
+    border-radius: 3px !important;
+    text-shadow: none;
+    font-size: 15px;
+}
+
+.tm-navbar .uk-navbar-nav > li { margin-left: 20px; }
+
+/* Hover */
+.tm-navbar .uk-navbar-nav > li:hover > a,
+.tm-navbar .uk-navbar-nav > li > a:focus,
+.tm-navbar .uk-navbar-nav > li.uk-open > a {
+    border: none;
+    color: #FFF;
+}
+
+/* Active */
+.tm-navbar .uk-navbar-nav > li.uk-active > a {
+    background-color: #2BA3D4;
+    color: #FFF;
+}
+
+/* OnClick */
+.tm-navbar .uk-navbar-nav > li > a:active { background-color: transparent; }
+
+/*
+ *  * Nav
+ *   */
+
+.tm-nav > li > a { color: #777; }
+
+/* Hover */
+.tm-nav > li > a:hover,
+.tm-nav > li > a:focus,
+.tm-nav > li.uk-active > a  {
+    background: #F5F5F5;
+    color: #444;
+}
+
+/* Sub-object: `nav-header` */
+.tm-nav .uk-nav-header {
+    color: #222;
+    font-weight: normal;
+}
+
+/*
+ *  * Nav
+ *   */
+

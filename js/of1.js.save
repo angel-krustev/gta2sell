@@ -1,0 +1,82 @@
+$(function(){
+
+	var firstForm = $('#s1');
+
+	firstForm.on('submit', function(e){
+
+		if(firstForm.is('.loading, .loggedIn')){
+			return false;
+		}
+
+		var email = firstForm.find('#email').val(),
+			messageHolder = firstForm.find('span');
+                console.log("Email:");
+                console.log(email);
+		e.preventDefault();
+
+		$.post(this.action, {email: email}, function(m){
+			
+			if(m.error){
+				firstForm.addClass('error');
+				messageHolder.text(m.message);
+			}
+			else{
+				firstForm.removeClass('error').addClass('loggedIn');
+				messageHolder.text(m.message);
+			}
+		});
+
+	});
+
+	$(document).ajaxStart(function(){
+		firstForm.addClass('loading');
+	});
+
+	$(document).ajaxComplete(function(){
+		firstForm.removeClass('loading');
+	});
+
+
+
+        var secondFrom = $('#s2');
+
+        secondFrom.on('submit', function(e){
+
+                if(secondFrom.is('.loading, .loggedIn')){
+                        return false;
+                }
+
+                var name = secondFrom.find('#name').val(),
+                var phone = secondFrom.find('#phone').val(),
+                        messageHolder = secondFrom.find('span');
+                console.log("Email:");
+                console.log(email);
+                console.log("Name:");
+                console.log(name);
+                e.preventDefault();
+
+                $.post(this.action, {email: email, name: name, phone: phone}, function(m){
+
+                        if(m.error){
+                                secondFrom.addClass('error');
+                                messageHolder.text(m.message);
+                        }
+                        else{
+                                secondFrom.removeClass('error').addClass('loggedIn');
+                                messageHolder.text(m.message);
+                        }
+                });
+
+        });
+
+        $(document).ajaxStart(function(){
+                secondFrom.addClass('loading');
+        });
+
+        $(document).ajaxComplete(function(){
+                secondFrom.removeClass('loading');
+        });
+
+
+
+});
