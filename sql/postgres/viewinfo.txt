@@ -1,0 +1,723 @@
+the orginal source table
+treb=>            \d idx_property
+                                           Table "public.idx_property"
+                      Column                       |            Type             | Collation | Nullable | Default
+---------------------------------------------------+-----------------------------+-----------+----------+---------
+ above_grade_finished_area                         | double precision            |           |          |
+ above_grade_finished_area_source                  | text                        |           |          |
+ above_grade_finished_area_source_other            | text                        |           |          |
+ above_grade_finished_area_units                   | text                        |           |          |
+ accessibility_features                            | text                        |           |          |
+ access_to_property                                | text                        |           |          |
+ add_change_timestamp                              | timestamp without time zone |           |          |
+ additional_monthly_fee                            | double precision            |           |          |
+ additional_monthly_fee_frequency                  | text                        |           |          |
+ additional_pictures_url                           | text                        |           |          |
+ alternate_feature_sheet                           | text                        |           |          |
+ alternative_power                                 | text                        |           |          |
+ amps                                              | integer                     |           |          |
+ apartment_number                                  | text                        |           |          |
+ approximate_age                                   | text                        |           |          |
+ architectural_style                               | text                        |           |          |
+ assessment_year                                   | integer                     |           |          |
+ assignment_yn                                     | boolean                     |           |          |
+ association_amenities                             | text                        |           |          |
+ association_fee                                   | double precision            |           |          |
+ association_fee_frequency                         | text                        |           |          |
+ association_fee_includes                          | text                        |           |          |
+ association_name                                  | text                        |           |          |
+ association_yn                                    | boolean                     |           |          |
+ attached_garage_yn                                | boolean                     |           |          |
+ back_on_market_entry_timestamp                    | timestamp without time zone |           |          |
+ balcony_type                                      | text                        |           |          |
+ basement                                          | text                        |           |          |
+ basement_yn                                       | boolean                     |           |          |
+ bathrooms_total_integer                           | integer                     |           |          |
+ bay_size_length_feet                              | integer                     |           |          |
+ bay_size_length_inches                            | integer                     |           |          |
+ bay_size_width_feet                               | integer                     |           |          |
+ bay_size_width_inches                             | integer                     |           |          |
+ bedrooms_above_grade                              | integer                     |           |          |
+ bedrooms_below_grade                              | integer                     |           |          |
+ bedrooms_total                                    | integer                     |           |          |
+ below_grade_finished_area                         | double precision            |           |          |
+ below_grade_finished_area_source                  | text                        |           |          |
+ below_grade_finished_area_units                   | text                        |           |          |
+ board_property_type                               | text                        |           |          |
+ broker_fax_number                                 | text                        |           |          |
+ building_area_source                              | text                        |           |          |
+ building_area_total                               | double precision            |           |          |
+ building_area_units                               | text                        |           |          |
+ building_name                                     | text                        |           |          |
+ business_name                                     | text                        |           |          |
+ business_type                                     | text                        |           |          |
+ buyer_agent_full_name                             | text                        |           |          |
+ buyer_agent_key                                   | text                        |           |          |
+ buyer_office_key                                  | text                        |           |          |
+ buyer_office_name                                 | text                        |           |          |
+ buy_option_yn                                     | boolean                     |           |          |
+ cable_yna                                         | text                        |           |          |
+ carport_spaces                                    | double precision            |           |          |
+ central_vacuum_yn                                 | boolean                     |           |          |
+ changed_by_member_key                             | text                        |           |          |
+ channel_name                                      | text                        |           |          |
+ chattels_yn                                       | boolean                     |           |          |
+ city                                              | text                        |           |          |
+ city_code                                         | text                        |           |          |
+ city_region                                       | text                        |           |          |
+ city_region_code                                  | text                        |           |          |
+ clear_height_feet                                 | integer                     |           |          |
+ clear_height_inches                               | integer                     |           |          |
+ close_date                                        | timestamp without time zone |           |          |
+ close_date_hold                                   | timestamp without time zone |           |          |
+ close_price                                       | double precision            |           |          |
+ close_price_hold                                  | double precision            |           |          |
+ co_buyer_agent3_email                             | text                        |           |          |
+ co_buyer_agent3_full_name                         | text                        |           |          |
+ co_buyer_agent3_preferred_phone                   | text                        |           |          |
+ co_buyer_agent4_email                             | text                        |           |          |
+ co_buyer_agent4_full_name                         | text                        |           |          |
+ co_buyer_agent4_preferred_phone                   | text                        |           |          |
+ co_buyer_agent_email                              | text                        |           |          |
+ co_buyer_agent_full_name                          | text                        |           |          |
+ co_buyer_agent_key                                | text                        |           |          |
+ co_buyer_agent_key3                               | text                        |           |          |
+ co_buyer_agent_key4                               | text                        |           |          |
+ co_buyer_agent_preferred_phone                    | text                        |           |          |
+ co_buyer_office_key                               | text                        |           |          |
+ co_buyer_office_key3                              | text                        |           |          |
+ co_buyer_office_key4                              | text                        |           |          |
+ co_buyer_office_name                              | text                        |           |          |
+ co_buyer_office_name3                             | text                        |           |          |
+ co_buyer_office_name4                             | text                        |           |          |
+ co_list_agent3_email                              | text                        |           |          |
+ co_list_agent3_full_name                          | text                        |           |          |
+ co_list_agent3_key                                | text                        |           |          |
+ co_list_agent3_preferred_phone                    | text                        |           |          |
+ co_list_agent4_email                              | text                        |           |          |
+ co_list_agent4_full_name                          | text                        |           |          |
+ co_list_agent4_key                                | text                        |           |          |
+ co_list_agent4_preferred_phone                    | text                        |           |          |
+ co_list_agent_aor                                 | text                        |           |          |
+ co_list_agent_direct_phone                        | text                        |           |          |
+ co_list_agent_email                               | text                        |           |          |
+ co_list_agent_full_name                           | text                        |           |          |
+ co_list_agent_key                                 | text                        |           |          |
+ co_list_agent_preferred_phone                     | text                        |           |          |
+ co_list_office_key                                | text                        |           |          |
+ co_list_office_key3                               | text                        |           |          |
+ co_list_office_key4                               | text                        |           |          |
+ co_list_office_name                               | text                        |           |          |
+ co_list_office_name3                              | text                        |           |          |
+ co_list_office_name4                              | text                        |           |          |
+ co_list_office_phone                              | text                        |           |          |
+ commercial_condo_fee                              | double precision            |           |          |
+ commercial_condo_fee_frequency                    | text                        |           |          |
+ common_area_upcharge                              | integer                     |           |          |
+ community_features                                | text                        |           |          |
+ conditional_expiry_date                           | timestamp without time zone |           |          |
+ condition_of_sale                                 | text                        |           |          |
+ condo_corp_number                                 | integer                     |           |          |
+ construction_materials                            | text                        |           |          |
+ contact_after_expiry_yn                           | boolean                     |           |          |
+ contract_status                                   | text                        |           |          |
+ cooling                                           | text                        |           |          |
+ cooling_yn                                        | boolean                     |           |          |
+ country                                           | text                        |           |          |
+ county_or_parish                                  | text                        |           |          |
+ county_or_parish_code                             | text                        |           |          |
+ covered_spaces                                    | double precision            |           |          |
+ crane_yn                                          | boolean                     |           |          |
+ create_date                                       | timestamp without time zone |           |          |
+ created_in_amp                                    | boolean                     |           |          |
+ credit_check_yn                                   | boolean                     |           |          |
+ cross_street                                      | text                        |           |          |
+ days_on_market                                    | integer                     |           |          |
+ ddfyn                                             | boolean                     |           |          |
+ deal_fell_through_entry_timestamp                 | timestamp without time zone |           |          |
+ den_familyroom_yn                                 | boolean                     |           |          |
+ deposit_required                                  | boolean                     |           |          |
+ development_charges_paid                          | text                        |           |          |
+ direction_faces                                   | text                        |           |          |
+ directions                                        | text                        |           |          |
+ directload_yn                                     | boolean                     |           |          |
+ disclose_after_closing_date                       | text                        |           |          |
+ disclosures                                       | text                        |           |          |
+ docking_type                                      | text                        |           |          |
+ documents_change_timestamp                        | timestamp without time zone |           |          |
+ dom_replication                                   | integer                     |           |          |
+ dom_replication_date                              | timestamp without time zone |           |          |
+ dom_replication_increasing_yn                     | boolean                     |           |          |
+ do_not_disclose_until_closing_yn                  | boolean                     |           |          |
+ double_man_shipping_doors                         | integer                     |           |          |
+ double_man_shipping_doors_height_feet             | integer                     |           |          |
+ double_man_shipping_doors_height_inches           | integer                     |           |          |
+ double_man_shipping_doors_width_feet              | integer                     |           |          |
+ double_man_shipping_doors_width_inches            | integer                     |           |          |
+ draft_key                                         | text                        |           |          |
+ drive_in_level_shipping_doors                     | integer                     |           |          |
+ drive_in_level_shipping_doors_height_feet         | integer                     |           |          |
+ drive_in_level_shipping_doors_height_inches       | integer                     |           |          |
+ drive_in_level_shipping_doors_width_feet          | integer                     |           |          |
+ drive_in_level_shipping_doors_width_inches        | integer                     |           |          |
+ duplicate_listing_yn                              | boolean                     |           |          |
+ electric_expense                                  | double precision            |           |          |
+ electric_on_property_yn                           | boolean                     |           |          |
+ electric_yna                                      | text                        |           |          |
+ elevator_type                                     | text                        |           |          |
+ elevator_yn                                       | boolean                     |           |          |
+ employment_letter_yn                              | boolean                     |           |          |
+ energy_certificate                                | boolean                     |           |          |
+ ensuite_laundry_yn                                | boolean                     |           |          |
+ escape_clause_hours                               | text                        |           |          |
+ escape_clause_yn                                  | boolean                     |           |          |
+ estimated_inventory_value_at_cost                 | double precision            |           |          |
+ exclusions                                        | text                        |           |          |
+ exercise_room_gym                                 | text                        |           |          |
+ expenses                                          | text                        |           |          |
+ expiration_date                                   | timestamp without time zone |           |          |
+ exposure                                          | text                        |           |          |
+ extension_entry_timestamp                         | timestamp without time zone |           |          |
+ exterior_features                                 | text                        |           |          |
+ farm_features                                     | text                        |           |          |
+ farm_type                                         | text                        |           |          |
+ financial_statement_available_yn                  | boolean                     |           |          |
+ fireplace_features                                | text                        |           |          |
+ fireplaces_total                                  | integer                     |           |          |
+ fireplace_yn                                      | boolean                     |           |          |
+ foundation_details                                | text                        |           |          |
+ fractional_ownership_yn                           | boolean                     |           |          |
+ franchise_yn                                      | boolean                     |           |          |
+ freestanding_yn                                   | boolean                     |           |          |
+ frontage_length                                   | text                        |           |          |
+ furnished                                         | text                        |           |          |
+ garage_parking_spaces                             | text                        |           |          |
+ garage_type                                       | text                        |           |          |
+ garage_yn                                         | boolean                     |           |          |
+ gas_yna                                           | text                        |           |          |
+ geo_code_syndication                              | boolean                     |           |          |
+ geo_location_type                                 | text                        |           |          |
+ geo_movement                                      | double precision            |           |          |
+ geo_source                                        | text                        |           |          |
+ grade_level_shipping_doors                        | integer                     |           |          |
+ grade_level_shipping_doors_height_feet            | integer                     |           |          |
+ grade_level_shipping_doors_height_inches          | integer                     |           |          |
+ grade_level_shipping_doors_width_feet             | integer                     |           |          |
+ grade_level_shipping_doors_width_inches           | integer                     |           |          |
+ green_certification_level                         | text                        |           |          |
+ green_property_information_statement              | boolean                     |           |          |
+ gross_revenue                                     | double precision            |           |          |
+ handicapped_equipped_yn                           | boolean                     |           |          |
+ heating_expenses                                  | double precision            |           |          |
+ heating_yn                                        | boolean                     |           |          |
+ heat_source                                       | text                        |           |          |
+ heat_type                                         | text                        |           |          |
+ holdover_days                                     | integer                     |           |          |
+ hours_days_of_operation                           | text                        |           |          |
+ hours_days_of_operation_description               | text                        |           |          |
+ hst_application                                   | text                        |           |          |
+ import_timestamp                                  | timestamp without time zone |           |          |
+ inclusions                                        | text                        |           |          |
+ industrial_area                                   | double precision            |           |          |
+ industrial_area_code                              | text                        |           |          |
+ insurance_expense                                 | double precision            |           |          |
+ interior_features                                 | text                        |           |          |
+ internet_address_display_yn                       | boolean                     |           |          |
+ internet_entire_listing_display_yn                | boolean                     |           |          |
+ island_yn                                         | boolean                     |           |          |
+ kitchens_above_grade                              | integer                     |           |          |
+ kitchens_below_grade                              | integer                     |           |          |
+ kitchens_total                                    | integer                     |           |          |
+ latitude                                          | double precision            |           |          |
+ laundry_features                                  | text                        |           |          |
+ laundry_level                                     | text                        |           |          |
+ lease_agreement_yn                                | boolean                     |           |          |
+ lease_amount                                      | double precision            |           |          |
+ leased_conditional_entry_timestamp                | timestamp without time zone |           |          |
+ leased_entry_timestamp                            | timestamp without time zone |           |          |
+ leased_land_fee                                   | double precision            |           |          |
+ leased_terms                                      | text                        |           |          |
+ lease_term                                        | text                        |           |          |
+ lease_to_own_equipment                            | text                        |           |          |
+ legal_apartment_number                            | text                        |           |          |
+ legal_stories                                     | text                        |           |          |
+ link_property                                     | text                        |           |          |
+ link_yn                                           | boolean                     |           |          |
+ liquor_license_yn                                 | boolean                     |           |          |
+ list_agent_aor                                    | text                        |           |          |
+ list_agent_direct_phone                           | text                        |           |          |
+ list_agent_email                                  | text                        |           |          |
+ list_agent_full_name                              | text                        |           |          |
+ list_agent_key                                    | text                        |           |          |
+ list_agent_office_phone                           | text                        |           |          |
+ list_aor                                          | text                        |           |          |
+ listing_comments                                  | text                        |           |          |
+ listing_contract_date                             | timestamp without time zone |           |          |
+ listing_id                                        | text                        |           |          |
+ listing_key                                       | text                        |           | not null |
+ list_office_aor                                   | text                        |           |          |
+ list_office_fax                                   | text                        |           |          |
+ list_office_key                                   | text                        |           |          |
+ list_office_name                                  | text                        |           |          |
+ list_office_phone                                 | text                        |           |          |
+ list_price                                        | double precision            |           |          |
+ list_price_unit                                   | text                        |           |          |
+ living_area_range                                 | text                        |           |          |
+ living_area_source                                | text                        |           |          |
+ living_area_units                                 | text                        |           |          |
+ local_improvements                                | boolean                     |           |          |
+ local_improvements_comments                       | text                        |           |          |
+ locker                                            | text                        |           |          |
+ locker_level                                      | text                        |           |          |
+ locker_number                                     | text                        |           |          |
+ locker_unit                                       | text                        |           |          |
+ longitude                                         | double precision            |           |          |
+ lot_depth                                         | double precision            |           |          |
+ lot_dimensions_source                             | text                        |           |          |
+ lot_features                                      | text                        |           |          |
+ lot_irregularities                                | text                        |           |          |
+ lot_shape                                         | text                        |           |          |
+ lot_size_area                                     | double precision            |           |          |
+ lot_size_area_units                               | text                        |           |          |
+ lot_size_dimensions                               | text                        |           |          |
+ lot_size_range_acres                              | text                        |           |          |
+ lot_size_source                                   | text                        |           |          |
+ lot_size_units                                    | text                        |           |          |
+ lot_type                                          | text                        |           |          |
+ lot_width                                         | double precision            |           |          |
+ main_level_bathrooms                              | integer                     |           |          |
+ main_level_bedrooms                               | integer                     |           |          |
+ main_office_key                                   | text                        |           |          |
+ maintenance_expense                               | double precision            |           |          |
+ major_change_timestamp                            | timestamp without time zone |           |          |
+ map_column                                        | integer                     |           |          |
+ map_old_column                                    | text                        |           |          |
+ map_old_page                                      | text                        |           |          |
+ map_old_row                                       | text                        |           |          |
+ map_page                                          | text                        |           |          |
+ map_row                                           | text                        |           |          |
+ map_url                                           | text                        |           |          |
+ maximum_rental_months_term                        | integer                     |           |          |
+ media_change_timestamp                            | timestamp without time zone |           |          |
+ media_listing_key                                 | text                        |           |          |
+ minimum_rental_term_months                        | integer                     |           |          |
+ mls_area_district_old_zone                        | text                        |           |          |
+ mls_area_district_toronto                         | text                        |           |          |
+ mls_area_municipality_district                    | text                        |           |          |
+ mls_status                                        | text                        |           |          |
+ modification_timestamp                            | timestamp without time zone |           |          |
+ mortgage_comment                                  | text                        |           |          |
+ mui                                               | text                        |           |          |
+ net_operating_income                              | double precision            |           |          |
+ new_construction_yn                               | boolean                     |           |          |
+ number_of_full_time_employees                     | integer                     |           |          |
+ number_of_kitchens                                | text                        |           |          |
+ number_shares_percent                             | text                        |           |          |
+ occupant_type                                     | text                        |           |          |
+ offer_remarks                                     | text                        |           |          |
+ office_apartment_area                             | double precision            |           |          |
+ office_apartment_area_unit                        | text                        |           |          |
+ old_photo_instructions                            | text                        |           |          |
+ open_house_date                                   | timestamp without time zone |           |          |
+ open_house_end_time                               | timestamp without time zone |           |          |
+ open_house_notes                                  | text                        |           |          |
+ open_house_remarks                                | text                        |           |          |
+ open_house_start_time                             | timestamp without time zone |           |          |
+ operating_expense                                 | double precision            |           |          |
+ original_entry_timestamp                          | timestamp without time zone |           |          |
+ original_list_price                               | double precision            |           |          |
+ original_list_price_unit                          | text                        |           |          |
+ originating_system_id                             | text                        |           |          |
+ originating_system_key                            | text                        |           |          |
+ originating_system_name                           | text                        |           |          |
+ other_area                                        | double precision            |           |          |
+ other_expense                                     | double precision            |           |          |
+ other_structures                                  | text                        |           |          |
+ out_of_area_municipality                          | text                        |           |          |
+ outside_storage_yn                                | boolean                     |           |          |
+ owner_name                                        | text                        |           |          |
+ parcel_number                                     | text                        |           |          |
+ parcel_number2                                    | integer                     |           |          |
+ parcel_of_tied_land                               | text                        |           |          |
+ parking_features                                  | text                        |           |          |
+ parking_level_unit1                               | text                        |           |          |
+ parking_level_unit2                               | text                        |           |          |
+ parking_monthly_cost                              | double precision            |           |          |
+ parking_spaces                                    | integer                     |           |          |
+ parking_spot1                                     | text                        |           |          |
+ parking_spot2                                     | text                        |           |          |
+ parking_total                                     | double precision            |           |          |
+ parking_type1                                     | text                        |           |          |
+ parking_type2                                     | text                        |           |          |
+ payment_frequency                                 | text                        |           |          |
+ payment_method                                    | text                        |           |          |
+ percent_building                                  | text                        |           |          |
+ percent_list_price                                | text                        |           |          |
+ percent_rent                                      | double precision            |           |          |
+ permission_to_contact_listing_broker_to_advertise | boolean                     |           |          |
+ pets_allowed                                      | text                        |           |          |
+ phased_in_tax_assessed_value                      | double precision            |           |          |
+ photos_change_timestamp                           | timestamp without time zone |           |          |
+ picture_yn                                        | boolean                     |           |          |
+ pool_features                                     | text                        |           |          |
+ portion_lease_comments                            | text                        |           |          |
+ portion_property_lease                            | text                        |           |          |
+ possession_date                                   | timestamp without time zone |           |          |
+ possession_details                                | text                        |           |          |
+ possession_type                                   | text                        |           |          |
+ postal_code                                       | text                        |           |          |
+ previous_list_price                               | double precision            |           |          |
+ price_change_timestamp                            | timestamp without time zone |           |          |
+ prior_mls_status                                  | text                        |           |          |
+ prior_price_code                                  | text                        |           |          |
+ prior_price_code_status                           | text                        |           |          |
+ private_entrance_yn                               | boolean                     |           |          |
+ private_remarks                                   | text                        |           |          |
+ professional_management_expense                   | double precision            |           |          |
+ property_attached_yn                              | boolean                     |           |          |
+ property_features                                 | text                        |           |          |
+ property_management_company                       | text                        |           |          |
+ property_sub_type                                 | text                        |           |          |
+ property_type                                     | text                        |           |          |
+ property_use                                      | text                        |           |          |
+ public_remarks                                    | text                        |           |          |
+ public_remarks_extras                             | text                        |           |          |
+ purchase_contract_date                            | timestamp without time zone |           |          |
+ rail                                              | text                        |           |          |
+ recreation_room_yn                                | boolean                     |           |          |
+ references_required_yn                            | boolean                     |           |          |
+ rental_application_yn                             | boolean                     |           |          |
+ rental_items                                      | text                        |           |          |
+ rental_items_monthly_cost                         | text                        |           |          |
+ rent_includes                                     | text                        |           |          |
+ retail_area                                       | double precision            |           |          |
+ retail_area_code                                  | text                        |           |          |
+ road_access_fee                                   | double precision            |           |          |
+ roll_number                                       | text                        |           |          |
+ roof                                              | text                        |           |          |
+ room_height                                       | double precision            |           |          |
+ rooms_above_grade                                 | integer                     |           |          |
+ rooms_below_grade                                 | integer                     |           |          |
+ rooms_total                                       | integer                     |           |          |
+ room_type                                         | text                        |           |          |
+ rural_utilities                                   | text                        |           |          |
+ sales_brochure_url                                | text                        |           |          |
+ sauna_yn                                          | boolean                     |           |          |
+ seasonal_dwelling                                 | boolean                     |           |          |
+ seating_capacity                                  | integer                     |           |          |
+ security_features                                 | text                        |           |          |
+ senior_community_yn                               | boolean                     |           |          |
+ sewage                                            | text                        |           |          |
+ sewer                                             | text                        |           |          |
+ sewer_yna                                         | text                        |           |          |
+ shoreline                                         | text                        |           |          |
+ shoreline_allowance                               | text                        |           |          |
+ shoreline_exposure                                | text                        |           |          |
+ showing_appointments                              | text                        |           |          |
+ showing_requirements                              | text                        |           |          |
+ sign_on_property_yn                               | boolean                     |           |          |
+ soil_test                                         | text                        |           |          |
+ soil_type                                         | text                        |           |          |
+ sold_area                                         | text                        |           |          |
+ sold_area_code                                    | text                        |           |          |
+ sold_area_units                                   | text                        |           |          |
+ sold_area_units_hold                              | text                        |           |          |
+ sold_conditional_entry_timestamp                  | timestamp without time zone |           |          |
+ sold_entry_timestamp                              | timestamp without time zone |           |          |
+ sound_bite_url                                    | text                        |           |          |
+ source_system_id                                  | text                        |           |          |
+ source_system_name                                | text                        |           |          |
+ spa_yn                                            | boolean                     |           |          |
+ special_designation                               | text                        |           |          |
+ square_foot_source                                | text                        |           |          |
+ squash_racquet                                    | text                        |           |          |
+ staff_comments                                    | text                        |           |          |
+ standard_status                                   | text                        |           |          |
+ state_or_province                                 | text                        |           |          |
+ statis_cause_internal                             | text                        |           |          |
+ status_aur                                        | text                        |           |          |
+ status_certificate_yn                             | boolean                     |           |          |
+ street_dir_prefix                                 | text                        |           |          |
+ street_dir_suffix                                 | text                        |           |          |
+ street_name                                       | text                        |           |          |
+ street_number                                     | text                        |           |          |
+ street_suffix                                     | text                        |           |          |
+ street_suffix_code                                | text                        |           |          |
+ structure_type                                    | text                        |           |          |
+ survey_available_yn                               | boolean                     |           |          |
+ survey_type                                       | text                        |           |          |
+ survey_year                                       | integer                     |           |          |
+ suspended_date                                    | timestamp without time zone |           |          |
+ suspended_entry_timestamp                         | timestamp without time zone |           |          |
+ system_modification_timestamp                     | timestamp without time zone |           |          |
+ tax_annual_amount                                 | double precision            |           |          |
+ tax_assessed_value                                | integer                     |           |          |
+ tax_book_number                                   | text                        |           |          |
+ taxes_expense                                     | double precision            |           |          |
+ tax_legal_description                             | text                        |           |          |
+ tax_type                                          | text                        |           |          |
+ tax_year                                          | integer                     |           |          |
+ telephone_yna                                     | text                        |           |          |
+ terminated_date                                   | timestamp without time zone |           |          |
+ terminated_entry_timestamp                        | timestamp without time zone |           |          |
+ test_listing                                      | boolean                     |           |          |
+ timestamp_sql                                     | timestamp without time zone |           |          |
+ tmi                                               | text                        |           |          |
+ topography                                        | text                        |           |          |
+ total_expenses                                    | text                        |           |          |
+ total_unfinished_area                             | double precision            |           |          |
+ town                                              | text                        |           |          |
+ trailer_parking_spots                             | integer                     |           |          |
+ transaction_broker_compensation                   | text                        |           |          |
+ transaction_type                                  | text                        |           |          |
+ truck_level_shipping_doors                        | integer                     |           |          |
+ truck_level_shipping_doors_height_feet            | integer                     |           |          |
+ truck_level_shipping_doors_height_inches          | integer                     |           |          |
+ truck_level_shipping_doors_width_feet             | integer                     |           |          |
+ truck_level_shipping_doors_width_inches           | integer                     |           |          |
+ uffi                                              | text                        |           |          |
+ unavailable_date                                  | timestamp without time zone |           |          |
+ under_contract                                    | text                        |           |          |
+ unit_number                                       | text                        |           |          |
+ unparsed_address                                  | text                        |           |          |
+ utilities                                         | text                        |           |          |
+ vacancy_allowance                                 | integer                     |           |          |
+ vendor_property_info_statement                    | boolean                     |           |          |
+ view                                              | text                        |           |          |
+ virtual_tour_flag_yn                              | boolean                     |           |          |
+ virtual_tour_url_branded                          | text                        |           |          |
+ virtual_tour_url_branded2                         | text                        |           |          |
+ virtual_tour_url_unbranded                        | text                        |           |          |
+ virtual_tour_url_unbranded2                       | text                        |           |          |
+ volts                                             | integer                     |           |          |
+ washrooms_type1                                   | integer                     |           |          |
+ washrooms_type1_level                             | text                        |           |          |
+ washrooms_type1_pcs                               | integer                     |           |          |
+ washrooms_type2                                   | integer                     |           |          |
+ washrooms_type2_level                             | text                        |           |          |
+ washrooms_type2_pcs                               | integer                     |           |          |
+ washrooms_type3                                   | integer                     |           |          |
+ washrooms_type3_level                             | text                        |           |          |
+ washrooms_type3_pcs                               | integer                     |           |          |
+ washrooms_type4                                   | integer                     |           |          |
+ washrooms_type4_level                             | text                        |           |          |
+ washrooms_type4_pcs                               | integer                     |           |          |
+ washrooms_type5                                   | integer                     |           |          |
+ washrooms_type5_level                             | text                        |           |          |
+ washrooms_type5_pcs                               | integer                     |           |          |
+ water                                             | text                        |           |          |
+ water_body_name                                   | text                        |           |          |
+ water_body_type                                   | text                        |           |          |
+ water_delivery_feature                            | text                        |           |          |
+ water_expense                                     | double precision            |           |          |
+ waterfront                                        | text                        |           |          |
+ waterfront_accessory                              | text                        |           |          |
+ water_frontage_ft                                 | text                        |           |          |
+ waterfront_features                               | text                        |           |          |
+ waterfront_yn                                     | boolean                     |           |          |
+ water_meter_yn                                    | boolean                     |           |          |
+ water_source                                      | text                        |           |          |
+ water_view                                        | text                        |           |          |
+ water_yna                                         | text                        |           |          |
+ well_capacity                                     | double precision            |           |          |
+ well_depth                                        | double precision            |           |          |
+ winterized                                        | text                        |           |          |
+ year1_lease_price                                 | text                        |           |          |
+ year1_lease_price_hold                            | text                        |           |          |
+ year2_lease_price                                 | text                        |           |          |
+ year2_lease_price_hold                            | text                        |           |          |
+ year3_lease_price                                 | text                        |           |          |
+ year3_lease_price_hold                            | text                        |           |          |
+ year4_lease_price                                 | text                        |           |          |
+ year4_lease_price_hold                            | text                        |           |          |
+ year5_lease_price                                 | text                        |           |          |
+ year5_lease_price_hold                            | text                        |           |          |
+ year_built                                        | integer                     |           |          |
+ year_built_source                                 | text                        |           |          |
+ year_expenses                                     | integer                     |           |          |
+ zoning                                            | text                        |           |          |
+ zoning_designation                                | text                        |           |          |
+ rooms                                             | text                        |           |          |
+ addr                                              | character varying(255)      |           |          |
+ lnglat                                            | geometry(Point,4326)        |           |          |
+ preciseyn                                         | smallint                    |           |          |
+Indexes:
+    "idx_property_pkey1" PRIMARY KEY, btree (listing_key)
+
+
+current view:
+
+treb=> \d+ idx_property_legacy ;
+                                        View "public.idx_property_legacy"
+         Column          |            Type             | Collation | Nullable | Default | Storage  | Description
+-------------------------+-----------------------------+-----------+----------+---------+----------+-------------
+ ml_num                  | text                        |           |          |         | extended |
+ listing_id              | text                        |           |          |         | extended |
+ originating_system_id   | text                        |           |          |         | extended |
+ lat                     | double precision            |           |          |         | plain    |
+ lon                     | double precision            |           |          |         | plain    |
+ lnglat                  | geometry(Point,4326)        |           |          |         | main     |
+ preciseyn               | smallint                    |           |          |         | plain    |
+ addr                    | character varying(255)      |           |          |         | extended |
+ unparsed_address        | text                        |           |          |         | extended |
+ municipality            | text                        |           |          |         | extended |
+ community               | text                        |           |          |         | extended |
+ st_num                  | text                        |           |          |         | extended |
+ st                      | text                        |           |          |         | extended |
+ st_sfx                  | text                        |           |          |         | extended |
+ st_dir                  | text                        |           |          |         | extended |
+ cross_st                | text                        |           |          |         | extended |
+ apt_num                 | text                        |           |          |         | extended |
+ zip                     | text                        |           |          |         | extended |
+ county                  | text                        |           |          |         | extended |
+ br                      | integer                     |           |          |         | plain    |
+ bath_tot                | integer                     |           |          |         | plain    |
+ num_kit                 | integer                     |           |          |         | plain    |
+ rms                     | integer                     |           |          |         | plain    |
+ washrooms_type1         | integer                     |           |          |         | plain    |
+ lp_dol                  | double precision            |           |          |         | plain    |
+ orig_dol                | double precision            |           |          |         | plain    |
+ sp_dol                  | double precision            |           |          |         | plain    |
+ dom                     | integer                     |           |          |         | plain    |
+ updated                 | timestamp without time zone |           |          |         | plain    |
+ input_date              | timestamp without time zone |           |          |         | plain    |
+ xd                      | timestamp without time zone |           |          |         | plain    |
+ xdtd                    | timestamp without time zone |           |          |         | plain    |
+ rltr                    | text                        |           |          |         | extended |
+ list_office_phone       | text                        |           |          |         | extended |
+ list_agent_full_name    | text                        |           |          |         | extended |
+ list_agent_direct_phone | text                        |           |          |         | extended |
+ type_own_srch           | text                        |           |          |         | extended |
+ type_own1_out           | text                        |           |          |         | extended |
+ structure_type          | text                        |           |          |         | extended |
+ type_tr                 | text                        |           |          |         | extended |
+ disp_addr               | text                        |           |          |         | extended |
+ s_r                     | text                        |           |          |         | extended |
+ lsc                     | text                        |           |          |         | extended |
+ status                  | text                        |           |          |         | extended |
+ standard_status         | text                        |           |          |         | extended |
+ taxes                   | double precision            |           |          |         | plain    |
+ yr                      | integer                     |           |          |         | plain    |
+ legal_desc              | text                        |           |          |         | extended |
+ yr_built                | integer                     |           |          |         | plain    |
+ sqft                    | text                        |           |          |         | extended |
+ depth                   | double precision            |           |          |         | plain    |
+ front_ft                | text                        |           |          |         | extended |
+ irreg                   | text                        |           |          |         | extended |
+ style                   | text                        |           |          |         | extended |
+ bsmt1_out               | text                        |           |          |         | extended |
+ a_c                     | text                        |           |          |         | extended |
+ heating                 | text                        |           |          |         | extended |
+ fuel                    | text                        |           |          |         | extended |
+ gar_type                | text                        |           |          |         | extended |
+ gar_spaces              | double precision            |           |          |         | plain    |
+ park_spcs               | integer                     |           |          |         | plain    |
+ pool                    | text                        |           |          |         | extended |
+ waterfront              | text                        |           |          |         | extended |
+ zoning                  | text                        |           |          |         | extended |
+ furnished               | text                        |           |          |         | extended |
+ poss_date               | timestamp without time zone |           |          |         | plain    |
+ occ                     | text                        |           |          |         | extended |
+ ad_text                 | text                        |           |          |         | extended |
+ extras                  | text                        |           |          |         | extended |
+ inclusions              | text                        |           |          |         | extended |
+ exclusions              | text                        |           |          |         | extended |
+ rental_items            | text                        |           |          |         | extended |
+ tour_url                | text                        |           |          |         | extended |
+ condo_corp_number       | integer                     |           |          |         | plain    |
+ maint_fee               | double precision            |           |          |         | plain    |
+ all_inc                 | text                        |           |          |         | extended |
+ media_listing_key       | text                        |           |          |         | extended |
+ nimages                 | bigint                      |           |          |         | plain    |
+View definition:
+ SELECT listing_key AS ml_num,
+    listing_id,
+    originating_system_id,
+    latitude AS lat,
+    longitude AS lon,
+    lnglat,
+    preciseyn,
+    addr,
+    unparsed_address,
+        CASE
+            WHEN city ~~* 'Toronto %'::text THEN 'Toronto'::text
+            ELSE city
+        END AS municipality,
+    city_region AS community,
+    street_number AS st_num,
+    street_name AS st,
+    street_suffix AS st_sfx,
+    street_dir_suffix AS st_dir,
+    cross_street AS cross_st,
+    unit_number AS apt_num,
+    postal_code AS zip,
+    state_or_province AS county,
+    bedrooms_total AS br,
+    bathrooms_total_integer AS bath_tot,
+    kitchens_above_grade AS num_kit,
+    rooms_total AS rms,
+    washrooms_type1,
+    list_price AS lp_dol,
+    original_list_price AS orig_dol,
+    close_price AS sp_dol,
+    days_on_market AS dom,
+    modification_timestamp AS updated,
+    listing_contract_date AS input_date,
+    expiration_date AS xd,
+    extension_entry_timestamp AS xdtd,
+    list_office_name AS rltr,
+    list_office_phone,
+    list_agent_full_name,
+    list_agent_direct_phone,
+    property_sub_type AS type_own_srch,
+    property_type AS type_own1_out,
+    structure_type,
+    board_property_type AS type_tr,
+        CASE
+            WHEN internet_address_display_yn THEN 'Y'::text
+            ELSE 'N'::text
+        END AS disp_addr,
+        CASE
+            WHEN transaction_type ~~* '%lease%'::text THEN 'Lease'::text
+            ELSE 'Sale'::text
+        END AS s_r,
+    mls_status AS lsc,
+    contract_status AS status,
+    standard_status,
+    tax_annual_amount AS taxes,
+    tax_year AS yr,
+    tax_legal_description AS legal_desc,
+    year_built AS yr_built,
+    living_area_range AS sqft,
+    lot_depth AS depth,
+    frontage_length AS front_ft,
+    lot_irregularities AS irreg,
+    architectural_style AS style,
+    basement AS bsmt1_out,
+    cooling AS a_c,
+    heat_type AS heating,
+    heat_source AS fuel,
+    garage_type AS gar_type,
+    covered_spaces AS gar_spaces,
+    parking_spaces AS park_spcs,
+    pool_features AS pool,
+    waterfront,
+    zoning_designation AS zoning,
+    furnished,
+    possession_date AS poss_date,
+    possession_details AS occ,
+    public_remarks AS ad_text,
+    public_remarks_extras AS extras,
+    inclusions,
+    exclusions,
+    rental_items,
+    virtual_tour_url_unbranded AS tour_url,
+    condo_corp_number,
+    association_fee AS maint_fee,
+    association_fee_includes AS all_inc,
+    media_listing_key,
+    ( SELECT count(*) AS count
+           FROM idx_media m
+          WHERE m.resource_record_key::text = p.listing_key) AS nimages
+   FROM idx_property p;
+
