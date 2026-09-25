@@ -13,15 +13,6 @@
  * based code keeps working without per-file column renames.
  */
 
-if (!defined('DB_HOST')) {
-    define('DB_HOST', '192.168.1.167');
-    define('DB_PORT', '5433');
-    define('DB_NAME', 'treb');
-    define('DB_USER', 'web_user');
-    define('DB_PASS', 'SecretWebPass123!');
-}
-
-class PgStmtResultCompat
 {
     private $stmt;
 

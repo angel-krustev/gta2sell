@@ -35,7 +35,7 @@ if (!function_exists('to_url')) {
 if (!function_exists('url2mysql')) {
     function url2mysql($str)
     {
-        return str_replace('-', ' ', (string)$str);
+        return str_replace('-', '%', (string)$str);
     }
 }
 
@@ -187,4 +187,76 @@ if (!function_exists('money_format')) {
     {
         return '$' . number_format((float)$number, 0);
     }
+}
+
+if (!function_exists('get_municipality_latlon')) {
+function get_municipality_latlon($municipality){
+    global $mysqli;
+    $query = "select lat,lon,municipality from URL_MAPPER where municipality_url ilike ? and record_type='municipality';"  ;
+    if ($stmt = $mysqli->prepare($query)){
+        $stmt->bind_param("s",$municipality);
+        $stmt->execute();
+        $result = $stmt->get_result();
+       if ($row = $result->fetch_assoc()) {
+           $escapedListing = array_map(array($mysqli, 'real_escape_string'), $row);
+
+           extract($escapedListing);
+           if( !(empty($lon) || empty( $lat)) ){
+                          $stmt->close();
+                           return array($lat,$lon,$municipality);
+           } else {
+                           return array();
+           }
+       }
+    }
+ }
+}
+if (!function_exists('get_community_latlon')) {
+ function get_community_latlon($municipality,$community ){
+    global $mysqli;
+    $query = "select lat,lon,municipality,community from URL_MAPPER where municipality_url = ? and community_url = ? and record_type='community';  "  ;
+    err_log($query.":".$municipality.":".$community);
+    if ($stmt = $mysqli->prepare($query)){
+        $stmt->bind_param("ss",$municipality,$community);
+        $stmt->execute();
+        $result = $stmt->get_result();
+       if ($row = $result->fetch_assoc()) {
+           $escapedListing= array_map(array($mysqli, 'real_escape_string'), $row);
+           extract($escapedListing);
+           err_log($query.":>".$escapedListing."<:".$lat.": ".$lon);
+           if( !(empty($lon) || empty( $lat)) ){
+                          $stmt->close();
+                           return array($lat,$lon,$municipality,$community);
+           } else {
+                           return array();
+           }
+       }
+    }
+  }
+ }
+
+
+if (!function_exists('get_st_latlon')) {
+ function get_st_latlon($municipality,$community,$st){
+    global $mysqli;
+    $query = "select lat,lon,st,st_sfx,st_dir,community,municipality from URL_MAPPER where municipality_url ilike ? and community_url = ? and st_url = ? and record_type='st';  "  ;
+     err_log($query);
+    if ($stmt = $mysqli->prepare($query)){
+        $stmt->bind_param("sss",$municipality,$community,$st);
+        $stmt->execute();
+        $result = $stmt->get_result();
+       if ($row = $result->fetch_assoc()) {
+           $escapedListing= array_map(array($mysqli, 'real_escape_string'), $row);
+
+           extract($escapedListing);
+           if( !(empty($lon) || empty( $lat)) ){
+                          $stmt->close();
+                           return array($lat,$lon,$municipality,$community,$st,$st_sfx,$st_dir);
+           } else {
+                           return array();
+           }
+       }
+    }
+ }
+
 }

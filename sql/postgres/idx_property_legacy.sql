@@ -1,0 +1,104 @@
+CREATE OR REPLACE VIEW public.idx_property_legacy AS
+SELECT
+    listing_key AS ml_num,
+    listing_id,
+    originating_system_id,
+    latitude AS lat,
+    longitude AS lon,
+    lnglat,
+    preciseyn,
+    addr,
+    unparsed_address,
+
+    CASE
+        WHEN city ILIKE 'Toronto %' THEN 'Toronto'
+        ELSE city
+    END AS municipality,
+
+    city_region AS community,
+    street_number AS st_num,
+    street_name AS st,
+    street_suffix AS st_sfx,
+    street_dir_suffix AS st_dir,
+    cross_street AS cross_st,
+    unit_number AS apt_num,
+    postal_code AS zip,
+    state_or_province AS county,
+    bedrooms_total AS br,
+    bathrooms_total_integer AS bath_tot,
+    kitchens_above_grade AS num_kit,
+    rooms_total AS rms,
+    washrooms_type1,
+    list_price AS lp_dol,
+    original_list_price AS orig_dol,
+    close_price AS sp_dol,
+
+    -- Calculated Days On Market
+    (CURRENT_DATE - original_entry_timestamp::date) AS dom,
+
+    modification_timestamp AS updated,
+    listing_contract_date AS input_date,
+    expiration_date AS xd,
+    extension_entry_timestamp AS xdtd,
+    list_office_name AS rltr,
+    list_office_phone,
+    list_agent_full_name,
+    list_agent_direct_phone,
+    property_sub_type AS type_own_srch,
+    property_type AS type_own1_out,
+    structure_type,
+    board_property_type AS type_tr,
+
+    CASE
+        WHEN internet_address_display_yn THEN 'Y'
+        ELSE 'N'
+    END AS disp_addr,
+
+    CASE
+        WHEN transaction_type ILIKE '%lease%' THEN 'Lease'
+        ELSE 'Sale'
+    END AS s_r,
+
+    mls_status AS lsc,
+    contract_status AS status,
+    standard_status,
+    tax_annual_amount AS taxes,
+    tax_year AS yr,
+    tax_legal_description AS legal_desc,
+    COALESCE(NULLIF(TRIM(approximate_age), ''), 'N/A') AS yr_built,
+    living_area_range AS sqft,
+    lot_depth AS depth,
+    frontage_length AS front_ft,
+    lot_irregularities AS irreg,
+    architectural_style AS style,
+    basement AS bsmt1_out,
+    cooling AS a_c,
+    heat_type AS heating,
+    heat_source AS fuel,
+    garage_type AS gar_type,
+    covered_spaces AS gar_spaces,
+    parking_spaces AS park_spcs,
+    pool_features AS pool,
+    waterfront,
+    zoning_designation AS zoning,
+    furnished,
+    possession_date AS poss_date,
+    possession_details AS occ,
+    public_remarks AS ad_text,
+    public_remarks_extras AS extras,
+    inclusions,
+    exclusions,
+    rental_items,
+    virtual_tour_url_unbranded AS tour_url,
+    condo_corp_number,
+    association_fee AS maint_fee,
+    association_fee_includes AS all_inc,
+    media_listing_key,
+
+    (
+        SELECT COUNT(*)
+        FROM idx_media m
+        WHERE m.resource_record_key::text = p.listing_key
+    ) AS nimages
+
+FROM public.idx_property p;
