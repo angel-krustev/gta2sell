@@ -34,9 +34,9 @@ function get_property_image_url($media_listing_key, $ml_num, $index = 1, $width 
 function get_property_image_url_or_placeholder($nimages, $media_listing_key, $ml_num, $index = 1, $width = 600, $height = 400)
 {
     global $emp_image;
-    if ((int)$nimages === 0) {
-        return $emp_image;
-    }
+    #if ((int)$nimages === 0) {
+    #    return $emp_image;
+   #}
     $url = get_property_image_url($media_listing_key, $ml_num, $index, $width, $height);
     return $url !== null ? $url : $emp_image;
 }

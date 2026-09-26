@@ -13,7 +13,9 @@
  * based code keeps working without per-file column renames.
  */
 
+class PgStmtResultCompat
 {
+
     private $stmt;
 
     public function __construct(PDOStatement $stmt)
